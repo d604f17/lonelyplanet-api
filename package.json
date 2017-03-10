@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "name": "lonelyplanet-api",
   "main": "dist/main.js",
   "scripts": {
     "start": "node dist/main.js"
