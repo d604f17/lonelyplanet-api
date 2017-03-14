@@ -18,8 +18,11 @@ function getEndpoint(id, type = 'sights', limit = 1000, offset = 0) {
 
 class City {
     constructor(id, query) {
+        let parts = query.split('/');
+
         this.id = id;
-        this.query = query;
+        this.country = parts[0];
+        this.city = parts.pop();
     }
 
     sights() {
@@ -35,7 +38,7 @@ class City {
             rp(options)
                 .then(result => {
                     resolve(result.data.map(sight => {
-                        return new Sight({
+                        return new Sight(this, {
                             name: sight.attributes.name,
                             address: sight.attributes.address.street,
                             hours_string: sight.attributes.hours_string,
@@ -50,8 +53,8 @@ class City {
 }
 
 class Sight {
-    constructor(parameters) {
-        Object.assign(this, parameters);
+    constructor(city, parameters) {
+        Object.assign(this, {city}, parameters);
     }
 }
 

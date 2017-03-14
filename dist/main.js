@@ -47,8 +47,11 @@ var City = function () {
     function City(id, query) {
         _classCallCheck(this, City);
 
+        var parts = query.split('/');
+
         this.id = id;
-        this.query = query;
+        this.country = parts[0];
+        this.city = parts.pop();
     }
 
     _createClass(City, [{
@@ -67,7 +70,7 @@ var City = function () {
 
                 (0, _requestPromise2.default)(options).then(function (result) {
                     resolve(result.data.map(function (sight) {
-                        return new Sight({
+                        return new Sight(_this, {
                             name: sight.attributes.name,
                             address: sight.attributes.address.street,
                             hours_string: sight.attributes.hours_string,
@@ -83,10 +86,10 @@ var City = function () {
     return City;
 }();
 
-var Sight = function Sight(parameters) {
+var Sight = function Sight(city, parameters) {
     _classCallCheck(this, Sight);
 
-    Object.assign(this, parameters);
+    Object.assign(this, { city: city }, parameters);
 };
 
 var LonelyPlanet = function () {
