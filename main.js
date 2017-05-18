@@ -61,7 +61,7 @@ export default class LonelyPlanet {
     return new Promise((resolve, reject) => {
       rp(baseURL + query).then(body => {
         const $ = cheerio.load(body);
-        const href = $('.tours__more').attr('href');
+        const href = $('.food-and-drink__more').attr('href');
 
         if (href)
           resolve(new City(href.split('/').pop(), query));

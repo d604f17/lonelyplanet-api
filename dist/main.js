@@ -103,7 +103,7 @@ var LonelyPlanet = function () {
       return new Promise(function (resolve, reject) {
         (0, _requestPromise2.default)(baseURL + query).then(function (body) {
           var $ = _cheerio2.default.load(body);
-          var href = $('.tours__more').attr('href');
+          var href = $('.food-and-drink__more').attr('href');
 
           if (href) resolve(new City(href.split('/').pop(), query));else reject(new Error('href was not found'));
         });
