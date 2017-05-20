@@ -72,10 +72,7 @@ var City = function () {
           resolve(result.data.map(function (sight) {
             return new Sight(_this, {
               name: sight.attributes.name,
-              address: sight.attributes.address.street,
-              hours_string: sight.attributes.hours_string,
-              price_string: sight.attributes.price_string,
-              review: sight.attributes.review
+              address: sight.attributes.address.street
             });
           }));
         }).catch(reject);

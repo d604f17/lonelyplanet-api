@@ -40,9 +40,9 @@ class City {
           return new Sight(this, {
             name: sight.attributes.name,
             address: sight.attributes.address.street,
-            hours_string: sight.attributes.hours_string,
-            price_string: sight.attributes.price_string,
-            review: sight.attributes.review,
+            // hours_string: sight.attributes.hours_string,
+            // price_string: sight.attributes.price_string,
+            // review: sight.attributes.review,
           });
         }));
       }).catch(reject);
